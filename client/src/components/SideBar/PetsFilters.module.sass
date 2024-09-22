@@ -1,0 +1,75 @@
+.sideBar
+  position: fixed
+  min-width: 240px
+
+.sideBarContainer
+  display: flex
+  flex-direction: column
+
+.sideBarContainer + .sideBarContainer
+  margin-top: 3rem
+
+.sideBarTitle
+  text-align: center
+  font-size: 1.5rem
+  margin-bottom: 1.5rem
+
+.sideBarItem + .sideBarItem
+  margin-top: 1rem
+
+.sideBarItem 
+  display: flex
+  justify-content: space-between
+  align-items: center
+
+.select
+  border: 2px solid var(--orange)
+  background-color: transparent
+  color: var(--white)
+  padding: 5px 10px
+  border-radius: 5px
+  font-family: Ubuntu, sans-serif
+  width: 120px
+
+.resetFilterBtn
+  margin-top: 2rem
+  display: flex
+  justify-content: center
+  align-items: center
+  font-family: inherit
+  line-height: 1.25
+  letter-spacing: 0.05em
+  border: none
+  border-radius: 1.5rem
+  display: block
+  font-size: 1rem
+  padding: 0.625rem 1rem
+  text-align: center
+  background-color: transparent
+  color: var(--orange)
+  border: 2px solid var(--orange)
+
+.paginationBtn
+  width: 40%
+  display: flex
+  justify-content: center
+  align-items: center
+  font-family: inherit
+  line-height: 1.25
+  letter-spacing: 0.05em
+  border-radius: 1.5rem
+  display: block
+  font-size: 1rem
+  padding: 0.625rem 1rem
+  text-align: center
+  background-color: transparent
+  color: var(--orange)
+  border: 2px solid var(--orange)
+
+  &:disabled
+    color: rgb(245, 194, 146)
+    border: 2px solid rgb(245, 194, 146) 
+  
+.paginationIcon
+  width: 20px
+  height: 20px

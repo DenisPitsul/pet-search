@@ -1,0 +1,81 @@
+.notFoundText
+  padding-left: 272px
+  margin: 2rem auto
+  font-size: 2rem
+  color: var(--orange)
+
+.petsList
+  display: flex
+  flex-wrap: wrap
+  gap: 30px
+  padding-left: 272px
+
+.petItem
+  background: var(--purpule-gradient)
+  flex-basis: 100%
+  padding: 1rem
+  border-radius: 15px
+  color: white
+  display: flex
+  flex-direction: column
+
+  @media (min-width: 800px)
+    flex-basis: calc((100% / 2) - 15px)
+
+  @media (min-width: 1200px)
+    flex-basis: calc((100% / 3) - 20px)
+
+.petImg
+  border-radius: 15px
+  width: 100%
+  object-fit: cover
+  margin-bottom: 1rem
+
+.petName
+  width: 100%
+  text-align: center
+  font-size: 1.2rem
+  margin-bottom: 1rem
+
+.petText
+  width: 100%
+  font-size: 1rem
+  margin-bottom: 1rem
+
+.petIsFoundLabel
+  display: flex
+  align-items: center
+  gap: 10px
+  margin-bottom: 1rem
+
+.petIsFoundCheckBox
+  display: none
+
+.checkBoxIcon
+  width: 25px
+  height: 25px
+
+.petIsFoundCaption
+  font-size: 1rem
+
+.buttonsWrapper
+  display: flex
+  gap: 20px
+
+.deletePetBtn
+  flex-basis: calc((100% / 2) - 20px)
+  flex-grow: 1
+  font-family: inherit
+  line-height: 1.25
+  letter-spacing: 0.05em
+  border: none
+  border-radius: 1.5rem
+  display: block
+  font-size: 1rem
+  padding: 0.625rem 1rem
+  text-align: center
+  background-color: var(--orange)
+  color: var(--white)
+
+
+
