@@ -85,30 +85,31 @@ module.exports.getPets = async (req, res, next) => {
       order: [['id', sortDirection]],
     });
 
-    const petsWithTypes = foundPets.map(pet => ({
-      id: pet.id,
-      name: pet.name,
-      owner: pet.owner,
-      ownerContacts: pet.ownerContacts,
-      description: pet.description,
-      city: pet.city,
-      lostDate: pet.lostDate,
-      isFound: pet.isFound,
-      image: pet.image
-        ? `http://${process.env.HOST}:${process.env.PORT}/images/${pet.image}`
-        : null,
-      petType: {
-        id: pet['PetType.id'],
-        type: pet['PetType.type'],
-      },
-    }));
+    const preparedPets = foundPets.map(p => {
+      let preparedPet = { ...p };
+      preparedPet.petType = {
+        id: p['PetType.id'],
+        name: p['PetType.type'],
+      };
+
+      preparedPet.image = p.image
+        ? `http://${process.env.HOST}:${process.env.PORT}/images/${p.image}`
+        : null;
+
+      preparedPet = _.omit(preparedPet, [
+        'petId',
+        'PetType.id',
+        'PetType.type',
+      ]);
+      return preparedPet;
+    });
 
     const totalPages = Math.ceil(totalPetCount / limit);
 
     res.status(200).send({
       page,
       totalPages,
-      data: petsWithTypes,
+      data: preparedPets,
     });
   } catch (err) {
     next(err);
@@ -151,6 +152,18 @@ module.exports.getPetById = async (req, res, next) => {
         type: foundPet['PetType.type'],
       },
     };
+
+    let preparedPet = { ...foundPet };
+    preparedPet.brand = {
+      id: foundPet['PetType.id'],
+      name: foundPet['PetType.type'],
+    };
+
+    preparedPet.image = foundPet.image
+      ? `http://${process.env.HOST}:${process.env.PORT}/images/${foundPet.image}`
+      : null;
+
+    preparedPet = _.omit(preparedPet, ['petId', 'PetType.id', 'PetType.type']);
 
     res.status(200).send({ data: petWithType });
   } catch (err) {
