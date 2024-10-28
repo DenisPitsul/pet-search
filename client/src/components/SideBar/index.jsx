@@ -55,7 +55,6 @@ function SideBar ({
           <span className={styles.sideBarCaption}>Type:</span>
           <select
             className={styles.select}
-            defaultValue='all'
             onChange={e => changePetType(e.target.value)}
             value={filter.petType}
           >
@@ -71,7 +70,6 @@ function SideBar ({
           <span className={styles.sideBarCaption}>City:</span>
           <select
             className={styles.select}
-            defaultValue='all'
             onChange={e => changeCity(e.target.value)}
             value={filter.city}
           >
@@ -87,7 +85,6 @@ function SideBar ({
           <span className={styles.sideBarCaption}>Is Found:</span>
           <select
             className={styles.select}
-            defaultValue='all'
             onChange={e => changeIsFound(e.target.value)}
             value={filter.isFound}
           >
@@ -103,7 +100,6 @@ function SideBar ({
           <span className={styles.sideBarCaption}>Order by:</span>
           <select
             className={styles.select}
-            defaultValue='newest'
             onChange={e => updateSort(e.target.value)}
             value={sort}
           >
