@@ -51,8 +51,6 @@ function PetsList ({
     deletePet(id);
   };
 
-  console.log('pets', pets);
-
   return (
     <>
       {pets.length === 0 ? (
