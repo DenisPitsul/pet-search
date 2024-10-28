@@ -89,7 +89,7 @@ module.exports.getPets = async (req, res, next) => {
       let preparedPet = { ...p };
       preparedPet.petType = {
         id: p['PetType.id'],
-        name: p['PetType.type'],
+        type: p['PetType.type'],
       };
 
       preparedPet.image = p.image
@@ -97,7 +97,7 @@ module.exports.getPets = async (req, res, next) => {
         : null;
 
       preparedPet = _.omit(preparedPet, [
-        'petId',
+        'petTypeId',
         'PetType.id',
         'PetType.type',
       ]);
